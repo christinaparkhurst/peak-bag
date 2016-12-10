@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <div>
+      <h3>My Peak</h3>
+
+      <p><b>Summitted: </b>
+        <% if (peak.summitted) { %>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% } else { %>
+          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+        <% } %>
+      </p>
+
+      <p><b>Name: </b><%= peak.name %></p>
+      <p><b>ID: </b><%= peak._id %></p>
+      <p><b>Latitude: </b><%= peak.latitude %></p>
+      <p><b>Longitude: </b><%= peak.longitude %></p>
+      <!-- <p><b>Coordinates: </b><%= peak.coords %></p>   -->
+      <p><b>Elevation (ft): </b><%= peak.elevation %></p>
+      <p><b>Date Summitted: </b><%= peak.date %></p>
+      <p><b>Notes: </b><%= peak.notes %></p>
+      <p><b>Created at: </b><%= todo.createdAt %></p>
+      <p><b>Updated at: </b><%= todo.updatedAt %></p>
+    </div>
+
+    <a href="/peaks" class="btn btn-primary">Back</a>
+    <a href="/peaks/<%= peak._id %>/edit" class="btn btn-danger">Edit</a>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>
