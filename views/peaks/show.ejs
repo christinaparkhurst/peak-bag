@@ -13,7 +13,7 @@
     <div>
       <h3>My Peak</h3>
 
-      <p><b>Summitted: </b>
+      <p><b>Bagged: </b>
         <% if (peak.summitted) { %>
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         <% } else { %>
@@ -27,7 +27,7 @@
       <p><b>Longitude: </b><%= peak.longitude %></p>
       <!-- <p><b>Coordinates: </b><%= peak.coords %></p>   -->
       <p><b>Elevation (ft): </b><%= peak.elevation %></p>
-      <p><b>Date Summitted: </b><%= peak.date %></p>
+      <p><b>Date Bagged: </b><%= peak.date %></p>
       <p><b>Notes: </b><%= peak.notes %></p>
       <p><b>Created at: </b><%= peak.createdAt %></p>
       <p><b>Updated at: </b><%= peak.updatedAt %></p>
@@ -35,6 +35,10 @@
 
     <a href="/peaks" class="btn btn-primary">Back</a>
     <a href="/peaks/<%= peak._id %>/edit" class="btn btn-danger">Edit</a>
+    <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE">
+      <a href="/peaks/<%= peak._id %>"></a>
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
   </main>
 
   <footer>

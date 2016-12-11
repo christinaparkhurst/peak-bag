@@ -14,12 +14,12 @@
       <h3>My Peaks:</h3>
       <% peaks.forEach(function(peak) { %>
         <h4>
-          <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE">
+          <!-- <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE"> -->
             <a href="/peaks/<%= peak._id %>">
-              <%= peak.name + ' - ' + peak.summitted %>
+              <%= peak.name %>
             </a>
-            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-          </form>
+            <!-- <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+          </form> -->
         </h4>
       <% }) %>
     </div>
