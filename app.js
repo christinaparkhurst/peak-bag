@@ -36,15 +36,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(expressLayouts);    //for ejs layout
 app.use(methodOverride('_method'));
 
-//passport
-// app.use(session({ secret: 'WDI Rocks!',
-//                   resave: true,
-//                   saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
-// app.use(flash());
-//
-// require('./config/passport/passport')(passport);
+// passport
+app.use(session({ secret: 'WDI Rocks!',
+                  resave: true,
+                  saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+require('./config/passport/passport')(passport);
 //
 // app.use('/', index);
 // app.use('/users', users);
@@ -55,6 +55,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+//use routes
 app.use('/', index);
 app.use('/users', users);
 app.use('/peaks', peaks);

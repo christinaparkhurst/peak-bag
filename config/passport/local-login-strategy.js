@@ -2,7 +2,7 @@ var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../../models/user');
 
 var strategy = new LocalStrategy({
-    usernameField : 'email',                 // default is 'username'
+    usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true
   }, function(req, email, password, callback) {

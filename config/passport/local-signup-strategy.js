@@ -2,6 +2,8 @@ var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../../models/user');
 
 var strategy = new LocalStrategy({
+    // firstNameField: 'firstName',
+    // lastNameField : 'lastName',
     usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true
@@ -16,9 +18,11 @@ var strategy = new LocalStrategy({
       }
       else {
         // Create a new user
-        var newUser            = new User();
-        newUser.local.email    = email;
-        newUser.local.password = newUser.encrypt(password);
+        var newUser             = new User();
+        newUser.local.firstName = req.body.firstName;
+        newUser.local.lastName  = req.body.lastName;
+        newUser.local.email     = email;
+        newUser.local.password  = newUser.encrypt(password);
 
         newUser.save(function(err) {
           return callback(err, newUser);

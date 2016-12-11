@@ -4,61 +4,55 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'PeakBagr' });
+  res.render('index', { title: 'PeakBagr', message: req.flash() });  // add the message
 });
 
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'PeakBagr', message: req.flash() });  // add the message
-// });
-
 
 //
-// // GET /signup
-// router.get('/signup', function(req, res, next) {
-//   res.render('signup.ejs', { message: req.flash() });
-// });
+// GET /signup
+router.get('/signup', function(req, res, next) {
+  res.render('signup.ejs', { message: req.flash() });
+});
 //
 // // POST /signup
-// router.post('/signup', function(req, res, next) {
-//   var signUpStrategy = passport.authenticate('local-signup', {
-//     successRedirect : '/',
-//     failureRedirect : '/signup',
-//     failureFlash : true
-//   });
-//
-//   return signUpStrategy(req, res, next);
-// });
-//
-// // GET /login
-// router.get('/login', function(req, res, next) {
-//   res.render('login.ejs', { message: req.flash() });
-// });
-//
-// // POST /login
-// router.post('/login', function(req, res, next) {
-//   var loginProperty = passport.authenticate('local-login', {
-//     successRedirect : '/',
-//     failureRedirect : '/login',
-//     failureFlash : true
-//   });
-//
-//   return loginProperty(req, res, next);
-// });
-//
-// // GET /logout
-// router.get('/logout', function(req, res, next) {
-//   req.logout();
-//   res.redirect('/');
-// });
-//
-// // Restricted page
-// router.get('/secret', function(req, res, next) {
-//   if (currentUser) {
-//     res.render('secret.ejs');
-//   }
-//   else {
-//     res.redirect('/');
-//   }
-// });
+router.post('/signup', function(req, res, next) {
+  var signUpStrategy = passport.authenticate('local-signup', {
+    successRedirect : '/peaks',
+    failureRedirect : '/signup',
+    failureFlash : true
+  });
+  return signUpStrategy(req, res, next);
+});
+
+// GET /login
+router.get('/login', function(req, res, next) {
+  res.render('login.ejs', { message: req.flash() });
+});
+
+// POST /login
+router.post('/login', function(req, res, next) {
+  var loginProperty = passport.authenticate('local-login', {
+    successRedirect : '/peaks',
+    failureRedirect : '/login',
+    failureFlash : true
+  });
+  return loginProperty(req, res, next);
+});
+
+// GET /logout
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
+
+// Restricted page
+router.get('/secret', function(req, res, next) {
+  if (currentUser) {
+    res.render('secret.ejs');
+  }
+  else {
+    res.redirect('/');
+  }
+});
 
 module.exports = router;

@@ -1,5 +1,4 @@
 
-<!--
 
 <ul class="nav navbar-nav navbar-left">
   <li><a href="/">Home</a></li>
@@ -15,12 +14,12 @@
     <li><a href="/login">Login</a></li>
     <li><a href="/signup">Signup</a></li>
   <% } %>
-</ul> -->
+</ul> 
 
 <!-- Incorporating Flash Messages
 add the following beneath the navbar: -->
 
-<!-- <div class="flash">
+<div class="flash">
   <% if (typeof message !== 'undefined') { %>
     <% if (typeof message.error !== 'undefined' && message.error.length > 0) { %>
       <div class="bg-danger"><%= message.error %></div>
@@ -32,4 +31,4 @@ add the following beneath the navbar: -->
       <div class="bg-success"><%= message.success %></div>
     <% } %>
   <% } %>
-</div> -->
+</div>
