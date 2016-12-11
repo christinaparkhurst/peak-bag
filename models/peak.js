@@ -8,7 +8,7 @@ var PeakSchema = new mongoose.Schema({
   longitude:      Number,
   coords:         [ Number, Number ],
   elevation:      Number,
-  date:           Number,      //figure out how to format date
+  date:           String,      //figure out how to format date
   notes:          String
   // img:      //how do i upload image
   },

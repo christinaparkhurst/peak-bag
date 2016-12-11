@@ -19,7 +19,7 @@ var peaks           = require('./routes/peaks');
 var app             = express();
 
 // Connect to database
-mongoose.connect('mongodb://localhost/peaks');
+mongoose.connect('mongodb://localhost/peak-bag');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

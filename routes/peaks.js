@@ -11,7 +11,7 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
-  // get all the todos and render the index view
+  // get all the peaks and render the index view
   Peak.find({}).sort({ createdAt: -1})
   .then(function(peaks) {
     res.render('peaks/index', { peaks: peaks } );
@@ -24,8 +24,13 @@ router.get('/', function(req, res, next) {
 // NEW
 router.get('/new', function(req, res, next) {
   var peak = {
-    title: '',          //update
-    completed: false    //update
+    name: '',
+    summitted: '',
+    latitude: '',
+    longitude: '',
+    elevation: '',
+    date: '',
+    notes: ''
   };
   res.render('peaks/new', { peak: peak } );
 });
@@ -45,8 +50,13 @@ router.get('/:id', function(req, res, next) {
 // CREATE
 router.post('/', function(req, res, next) {
   var peak = new Peak({
-    title: req.body.title,            //update
-    completed: req.body.completed ? true : false      //update
+    name: req.body.name,
+    summitted: req.body.summitted ? true : false,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
+    elevation: req.body.elevation,
+    date: req.body.date,
+    notes: req.body.notes
   });
   peak.save()
   .then(function(saved) {
@@ -74,8 +84,13 @@ router.put('/:id', function(req, res, next) {
   Peak.findById(req.params.id)
   .then(function(peak) {
     if (!peak) return next(makeError(res, 'Document not found', 404));
-    peak.title = req.body.title;
-    peak.completed = req.body.completed ? true : false;
+    peak.name = req.body.name;
+    peak.summitted = req.body.summitted ? true : false;
+    peak.latitude = req.body.latitude;
+    peak.longitude = req.body.longitude;
+    peak.elevation = req.body.elevation;
+    peak.date = req.body.date;
+    peak.notes = req.body.notes;
     return peak.save();
   })
   .then(function(saved) {
