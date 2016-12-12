@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PeakBagr</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include partials/head %>
   </head>
-  <body>
+  <body class="container-fluid">
+    <header>
+      <% include partials/header %>
+    </header>
+  <main>
     <h1>PeakBagr</h1>
     <p>Welcome to PeakBagr</p>
     <a href="/signup/" class="btn btn-primary">Sign Up</a>
@@ -18,5 +21,11 @@
       Use this website to keep track of all of the peaks you have bagged, and those you wish to bag.
     </p>
   </div>
-  </body>
+</main>
+
+<footer>
+  <% include partials/footer %>
+</footer>
+
+</body>
 </html>
