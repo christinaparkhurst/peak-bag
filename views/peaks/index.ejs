@@ -12,16 +12,28 @@
   <main>
     <div>
       <h3>My Peaks:</h3>
-      <% peaks.forEach(function(peak) { %>
-        <h4>
-          <!-- <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE"> -->
-            <a href="/peaks/<%= peak._id %>">
-              <%= peak.name %>
-            </a>
-            <!-- <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-          </form> -->
-        </h4>
-      <% }) %>
+        <h3>Bagged:</h3>
+          <% peaks.forEach(function(peak) { %>
+            <% if (peak.summitted === true) { %>
+              <h4>
+                <a href="/peaks/<%= peak._id %>">
+                  <%= peak.name %>
+                </a>
+              </h4>
+            <% } %>
+          <% }) %>
+
+      <h3>Wish List:</h3>
+          <% peaks.forEach(function(peak) { %>
+            <% if (peak.summitted === false) { %>
+              <h4>
+                <a href="/peaks/<%= peak._id %>">
+                  <%= peak.name %>
+                </a>
+              </h4>
+            <% } %>
+          <% }) %>
+
     </div>
     <a href="/peaks/new" class="btn btn-primary">Add New</a>
   </main>
