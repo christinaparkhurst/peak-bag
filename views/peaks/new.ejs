@@ -11,12 +11,86 @@
 
   <main>
     <h3>Add New Peak</h3>
+
+    <!-- <div id="current">Your lat/long will appear here after you drag/drop...</div>
+    <div class="container-fluid" id="map"></div>
+
+      <script>
+      var map;
+      // var myLatLng = {lat: peak.latitude, peak.longitude}
+      var myLatLng = {lat: 37.745597, lng: -119.533575};
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.745597, lng: -119.533575},
+          zoom: 4,
+          mapTypeId: 'terrain'
+        });
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          draggable: true,
+          title: 'Set lat/long values'
+        });
+        // marker.getPosition();
+        google.maps.event.addListener(marker, 'dragend', function(evt){
+          document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(5) + ' Current Lng: ' + evt.latLng.lng().toFixed(5) + '</p>';
+        });
+
+        google.maps.event.addListener(marker, 'dragstart', function(evt){
+          document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+        });
+        map.setCenter(marker.position);
+        marker.setMap(map);
+
+      }
+      </script> -->
+
     <form class="peak-form" action="/peaks" method="post">
       <% include _form %>
       <a href="/peaks" class="btn btn-primary">Back</a>
       <button type="submit" class="btn btn-success">Save</button>
     </form>
   </main>
+
+  <!-- <div id="current">Your lat/long will appear here after you drag/drop...</div>
+  <div class="container-fluid" id="map"></div>
+
+    <script>
+    var map;
+    // var myLatLng = {lat: peak.latitude, peak.longitude}
+    var myLatLng = {lat: 37.745597, lng: -119.533575};
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 37.745597, lng: -119.533575},
+        zoom: 4,
+        mapTypeId: 'terrain'
+      });
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        draggable: true,
+        title: 'Set lat/long values'
+      });
+      // marker.getPosition();
+      google.maps.event.addListener(marker, 'dragend', function(evt){
+        document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(5) + ' Current Lng: ' + evt.latLng.lng().toFixed(5) + '</p>';
+      });
+
+      google.maps.event.addListener(marker, 'dragstart', function(evt){
+        document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+      });
+      map.setCenter(marker.position);
+      marker.setMap(map);
+
+    }
+    </script> -->
+
+    <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXYwecmru-Up50RZpMUPXOaKGnMyEa3-k&callback=initMap">
+        </script>
+
 
   <footer>
     <% include ../partials/footer %>

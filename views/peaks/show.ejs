@@ -25,13 +25,48 @@
       <p><b>ID: </b><%= peak._id %></p>
       <p><b>Latitude: </b><%= peak.latitude %></p>
       <p><b>Longitude: </b><%= peak.longitude %></p>
-      <!-- <p><b>Coordinates: </b><%= peak.coords %></p>   -->
+      <p><b>Coordinates: </b><%= peak.coords %></p>  
       <p><b>Elevation (ft): </b><%= peak.elevation %></p>
       <p><b>Date Bagged: </b><%= peak.date %></p>
       <p><b>Notes: </b><%= peak.notes %></p>
       <p><b>Created at: </b><%= peak.createdAt %></p>
       <p><b>Updated at: </b><%= peak.updatedAt %></p>
     </div>
+
+    <div class="container-fluid" id="map"></div>
+
+      <script>
+      var map;
+
+      var myLatLng = {lat: <%= peak.latitude %>, lng: <%= peak.longitude %>}
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatLng,
+          zoom: 4,
+          mapTypeId: 'terrain'
+        });
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          // draggable: true,
+          title: 'Set lat/long values'
+        });
+
+        // google.maps.event.addListener(marker, 'dragend', function(evt){
+        //   document.getElementById('myLatitude').value = evt.latLng.lat().toFixed(5);
+        //   document.getElementById('myLongitude').value = evt.latLng.lng().toFixed(5);
+        // });
+        //
+        // google.maps.event.addListener(marker, 'dragstart', function(evt){
+        //   document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+        // });
+        map.setCenter(marker.position);
+        marker.setMap(map);
+
+      }
+      </script>
+
 
     <a href="/peaks" class="btn btn-primary">Back</a>
     <a href="/peaks/<%= peak._id %>/edit" class="btn btn-danger">Edit</a>
@@ -40,6 +75,10 @@
       <button type="submit" class="btn btn-danger">Delete</button>
     </form>
   </main>
+
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXYwecmru-Up50RZpMUPXOaKGnMyEa3-k&callback=initMap">
+      </script>
 
   <footer>
     <% include ../partials/footer %>

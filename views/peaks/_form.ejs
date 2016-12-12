@@ -16,10 +16,46 @@
 </div>
 
 <div class="form-group">
+
+  <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+  <div class="container-fluid" id="map"></div>
+    <script>
+    var map;
+    // var myLatLng = {lat: peak.latitude, peak.longitude}
+    var myLatLng = {lat: 37.745597, lng: -119.533575};
+
+    function initMap() {
+      //initialize map
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 37.745597, lng: -119.533575},
+        zoom: 4,
+        mapTypeId: 'terrain'
+      });
+      //add a draggable marker
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        draggable: true,
+        title: 'Set lat/long values'
+      });
+      //event listener to grab lat/long of marker and tie it to lat/long input fields
+      google.maps.event.addListener(marker, 'dragend', function(evt){
+        document.getElementById('myCoords').value = evt.latLng.lat().toFixed(5) + ', ' + evt.latLng.lng().toFixed(5);
+        document.getElementById('myLatitude').value = evt.latLng.lat().toFixed(5);
+        document.getElementById('myLongitude').value = evt.latLng.lng().toFixed(5);
+      });
+      map.setCenter(marker.position);
+      marker.setMap(map);
+
+    }
+    </script>
+
+
   <label for="latitude">Latitude</label>
   <input type="text"
          class="form-control"
          name="latitude"
+         id="myLatitude"
          value="<%= peak.latitude %>">
 </div>
 
@@ -28,17 +64,18 @@
   <input type="text"
          class="form-control"
          name="longitude"
+         id="myLongitude"
          value="<%= peak.longitude %>">
 </div>
 
-<!--i want to autofill the coordinates based on the lat/long-->
-<!-- <div class="form-group">
+<div class="form-group">
   <label for="coords">Coordinates</label>
   <input type="text"
          class="form-control"
          name="cords"
+         id="myCoords"
          value="<%= peak.coords %>">
-</div> -->
+</div>
 
 <div class="form-group">
   <label for="elevation">Elevation (ft)</label>

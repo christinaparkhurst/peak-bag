@@ -1,1 +1,5 @@
-node_modules/
+
+/node_modules/
+
+
+var key = "AIzaSyBXYwecmru-Up50RZpMUPXOaKGnMyEa3-k";

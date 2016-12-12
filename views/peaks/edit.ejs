@@ -18,6 +18,24 @@
       <button type="submit" class="btn btn-success">Save</button>
     </form>
   </main>
+<!--
+  <div class="container-fluid" id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.745597, lng: -119.533575},
+          zoom: 8,
+          mapTypeId: 'terrain'
+        });
+      }
+
+    </script>-->
+
+    <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXYwecmru-Up50RZpMUPXOaKGnMyEa3-k&callback=initMap">
+        </script>
+
 
   <footer>
     <% include ../partials/footer %>
