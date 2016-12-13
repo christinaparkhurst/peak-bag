@@ -39,9 +39,15 @@
   </main>
 
   <div class="container-fluid" id="map"></div>
-    <script>
+    <script type="text/javascript">
       var map;
       var myLatLng = {lat: 37.745597, lng: -119.533575};
+      var locations = [];
+
+      peak.forEach(function(peak)) {
+        locations.push(peak);
+        return locations;
+      });
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -49,16 +55,26 @@
           zoom: 4,
           mapTypeId: 'terrain'
         });
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          // draggable: true,
-          title: 'Peak'
+      }
+
+      var infowindow = new google.maps.InfoWindow();
+
+      var marker, i;
+
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
         });
 
-        map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/google.json');
-
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
       }
+
     </script>
 
     <script async defer

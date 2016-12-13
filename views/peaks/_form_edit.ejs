@@ -20,8 +20,8 @@
   <div class="container-fluid" id="map"></div>
     <script>
     var map;
-
-     var myLatLng = {lat: 37.745597, lng: -119.533575};
+    // var myLatLng = {lat: peak.latitude, peak.longitude}
+     var myLatLng = {lat: <%= peak.latitude %>, lng: <%= peak.longitude %>};
 
     function initMap() {
       //initialize map
@@ -30,13 +30,20 @@
         zoom: 4,
         mapTypeId: 'terrain'
       });
-      //add a draggable marker
+      //display marker
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
         draggable: true,
         title: 'Set lat/long values'
       });
+      //add a draggable marker
+      // var marker = new google.maps.Marker({
+      //   position: {lat: peak.latitude, lng: peak.longitude},
+      //   map: map,
+      //   draggable: true,
+      //   title: 'Set lat/long values'
+      // });
       //event listener to grab lat/long of marker and tie it to lat/long input fields
       google.maps.event.addListener(marker, 'dragend', function(evt){
         document.getElementById('myLatitude').value = evt.latLng.lat().toFixed(5);

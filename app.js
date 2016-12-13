@@ -60,14 +60,17 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/peaks', peaks);
 // app.use('/api', api);
-//
-// //Google Maps API + save lat/long to mongo
-// app.post('/peak', api.post);
-// app.get('/peak/near/:lon/:lat/:dist?', api.near);
-// app.get('/peak/:name/:descr/:latitude/:longitude?', api.save);
-// app.get('/peak/:name.:format?', api.show);
-// app.get('/peak', api.list);
 
+// app.get('/peaks', function(req, res){
+//     //get all peaks
+//     Peak.find({}, function(err, peaks){
+//
+//         if(err) throw err;
+//
+//          console.log('The peaks '+peaks.length);
+//          res.send(peaks);
+//     });
+// });
 
 
 // catch 404 and forward to error handler
