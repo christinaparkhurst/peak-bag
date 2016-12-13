@@ -34,7 +34,11 @@ function authenticate(req, res, next) {
 
 router.get('/', authenticate, function(req, res, next) {
   var peaks = global.currentUser.peaks;
-  res.render('peaks/index', { peaks: peaks, message: req.flash() });
+  let allPeaksAsString = '[' +
+    peaks.map(peak => {
+      return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ']';
+  }).join(',') + ']';
+  res.render('peaks/index', { peaks: peaks, allPeaksAsString, message: req.flash() });
 });
 
 // NEW

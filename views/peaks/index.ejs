@@ -42,12 +42,9 @@
     <script type="text/javascript">
       var map;
       var myLatLng = {lat: 37.745597, lng: -119.533575};
-      var locations = [];
+      var locations = <%- allPeaksAsString %>;
+      var myLocations = [];
 
-      peak.forEach(function(peak)) {
-        locations.push(peak);
-        return locations;
-      });
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -55,7 +52,6 @@
           zoom: 4,
           mapTypeId: 'terrain'
         });
-      }
 
       var infowindow = new google.maps.InfoWindow();
 
@@ -74,7 +70,7 @@
           }
         })(marker, i));
       }
-
+  }
     </script>
 
     <script async defer
