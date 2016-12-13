@@ -6,7 +6,7 @@ var PeakSchema = new mongoose.Schema({
   name:           { type: String,  required: true },
   latitude:       Number,
   longitude:      Number,
-  coords:         [],
+  coords:         { type: [Number] }, //[Long, Lat]
   elevation:      Number,
   date:           String,      //figure out how to format date
   notes:          String
