@@ -7,13 +7,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PeakBagr', message: req.flash() });  // add the message
 });
 
-
-//
 // GET /signup
 router.get('/signup', function(req, res, next) {
   res.render('signup.ejs', { message: req.flash() });
 });
-//
+
 // // POST /signup
 router.post('/signup', function(req, res, next) {
   var signUpStrategy = passport.authenticate('local-signup', {
@@ -45,7 +43,7 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-// Restricted page
+// Restricted page for testing
 router.get('/secret', function(req, res, next) {
   if (currentUser) {
     res.render('secret.ejs');

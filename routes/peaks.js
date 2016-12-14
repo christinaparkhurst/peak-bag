@@ -81,8 +81,6 @@ router.get('/:id/edit', authenticate, function(req, res, next) {
   res.render('peaks/edit', { peak: peak, message: req.flash() });
 });
 
-
-
 // UPDATE
 router.put('/:id', authenticate, function(req, res, next) {
   var peak = currentUser.peaks.id(req.params.id);
