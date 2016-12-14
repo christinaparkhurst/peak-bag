@@ -18,15 +18,18 @@ Deployment: [Heroku](http://farmconnect.herokuapp.com/)
 * Heroku
 
 ##Author
-Christina Parkhurst
+Christina Parkhurst <br>
 -Slack: @cparkhu
 
 ##Wireframe
-<img src="/public/images/Wireframe.JPG">
+<img src="/public/images/Wireframe.JPG"> <br>
+<img src="/public/images/Wireframe2.JPG"> <br>
+<img src="/public/images/Wireframe3.JPG"> <br>
+<img src="/public/images/Wireframe4.JPG"> <br>
 
 ##User Stories:
 Deployment: [Heroku](http://farmconnect.herokuapp.com/) <br>
 User Stories: [Trello](https://trello.com/b/85C4JfV7/project-3-user-stories)
 
 ##Future Development:
-* 
+*
