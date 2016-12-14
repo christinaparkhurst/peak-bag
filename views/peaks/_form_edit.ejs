@@ -37,13 +37,7 @@
         draggable: true,
         title: 'Set lat/long values'
       });
-      //add a draggable marker
-      // var marker = new google.maps.Marker({
-      //   position: {lat: peak.latitude, lng: peak.longitude},
-      //   map: map,
-      //   draggable: true,
-      //   title: 'Set lat/long values'
-      // });
+
       //event listener to grab lat/long of marker and tie it to lat/long input fields
       google.maps.event.addListener(marker, 'dragend', function(evt){
         document.getElementById('myLatitude').value = evt.latLng.lat().toFixed(5);

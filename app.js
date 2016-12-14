@@ -59,16 +59,6 @@ app.use(function (req, res, next) {
 app.use('/', index);
 app.use('/users', users);
 app.use('/peaks', peaks);
-// app.use('/api', api);
-
-//get peak data
-// app.get('/peaks', function(req, res){
-//     //get all peaks
-//     var query = Peak.find({}, function(err, peaks){
-//         if(err) throw err;
-//         res.json(peaks);
-//     });
-// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

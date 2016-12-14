@@ -21,23 +21,20 @@ function authenticate(req, res, next) {
 }
 
 // INDEX
-// router.get('/', authenticate, function(req, res, next) {
-//   // get all the peaks and render the index view
-//   Peak.find({}).sort({ createdAt: -1})
-//   .then(function(peaks) {
-//     res.render('peaks/index', { peaks: peaks } );
-//   })
-//   .catch(function(err) {
-//     return next(err);
-//   });
-// });
-
 router.get('/', authenticate, function(req, res, next) {
   var peaks = global.currentUser.peaks;
-  let allPeaksAsString = '[' +
+
+  var allPeaksAsString = '[' +
     peaks.map(peak => {
-      return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ']';
+      return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ', ' + peak.summitted + ']';
   }).join(',') + ']';
+// }
+// else if ('peak.summitted' === false) {
+//   var allPeaksAsString2 = '[' +
+//     peaks.map(peak => {
+//       return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ']';
+//   }).join(',') + ']';
+// }
   res.render('peaks/index', { peaks: peaks, allPeaksAsString, message: req.flash() });
 });
 
@@ -57,43 +54,13 @@ router.get('/new', authenticate, function(req, res, next) {
 });
 
 // SHOW
-// router.get('/:id', function(req, res, next) {
-//   Peak.findById(req.params.id)
-//   .then(function(peak) {
-//     if (!peak) return next(makeError(res, 'Document not found', 404));
-//     res.render('peaks/show', { peak: peak });
-//   })
-//   .catch(function(err) {
-//     return next(err);
-//   });
-// });
-
 router.get('/:id', authenticate, function(req, res, next) {
   var peak = currentUser.peaks.id(req.params.id);
   if (!peak) return next(makeError(res, 'Document not found', 404));
   res.render('peaks/show', { peak: peak, message: req.flash() });
 });
 
-
 // CREATE
-// router.post('/', function(req, res, next) {
-//   var peak = new Peak({
-//     name: req.body.name,
-//     summitted: req.body.summitted ? true : false,
-//     latitude: req.body.latitude,
-//     longitude: req.body.longitude,
-//     elevation: req.body.elevation,
-//     date: req.body.date,
-//     notes: req.body.notes
-//   });
-//   peak.save()
-//   .then(function(saved) {
-//     res.redirect('/peaks');
-//   })
-//   .catch(function(err) {
-//     return next(err);
-//   });
-// });
 router.post('/', authenticate, function(req, res, next) {
   var peak = new Peak({
     name: req.body.name,
@@ -114,18 +81,7 @@ router.post('/', authenticate, function(req, res, next) {
   });
 });
 
-
 // EDIT
-// router.get('/:id/edit', function(req, res, next) {
-//   Peak.findById(req.params.id)
-//   .then(function(peak) {
-//     if (!peak) return next(makeError(res, 'Document not found', 404));
-//     res.render('peaks/edit', { peak: peak });
-//   })
-//   .catch(function(err) {
-//     return next(err);
-//   });
-// });
 router.get('/:id/edit', authenticate, function(req, res, next) {
   var peak = currentUser.peaks.id(req.params.id);
   if (!peak) return next(makeError(res, 'Document not found', 404));
@@ -135,26 +91,6 @@ router.get('/:id/edit', authenticate, function(req, res, next) {
 
 
 // UPDATE
-// router.put('/:id', function(req, res, next) {
-//   Peak.findById(req.params.id)
-//   .then(function(peak) {
-//     if (!peak) return next(makeError(res, 'Document not found', 404));
-//     peak.name = req.body.name;
-//     peak.summitted = req.body.summitted ? true : false;
-//     peak.latitude = req.body.latitude;
-//     peak.longitude = req.body.longitude;
-//     peak.elevation = req.body.elevation;
-//     peak.date = req.body.date;
-//     peak.notes = req.body.notes;
-//     return peak.save();
-//   })
-//   .then(function(saved) {
-//     res.redirect('/peaks');
-//   })
-//   .catch(function(err) {
-//     return next(err);
-//   });
-// });
 router.put('/:id', authenticate, function(req, res, next) {
   var peak = currentUser.peaks.id(req.params.id);
   if (!peak) return next(makeError(res, 'Document not found', 404));
@@ -177,15 +113,6 @@ router.put('/:id', authenticate, function(req, res, next) {
 });
 
 // DESTROY
-// router.delete('/:id', function(req, res, next) {
-//   Peak.findByIdAndRemove(req.params.id)
-//   .then(function() {
-//     res.redirect('/peaks');
-//   })
-//   .catch(function(err) {
-//     return next(err);
-//   });
-// });
 router.delete('/:id', authenticate, function(req, res, next) {
   var peak = currentUser.peaks.id(req.params.id);
   if (!peak) return next(makeError(res, 'Document not found', 404));

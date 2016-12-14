@@ -17,8 +17,7 @@
             <% if (peak.summitted === true) { %>
               <h4>
                 <a href="/peaks/<%= peak._id %>">
-                  <%= peak.name %>, <%= peak.latitude %>,
-                  <%= peak.coords %>
+                  <%= peak.name %>
                 </a>
               </h4>
             <% } %>
@@ -39,38 +38,43 @@
   </main>
 
   <div class="container-fluid" id="map"></div>
-    <script type="text/javascript">
-      var map;
-      var myLatLng = {lat: 37.745597, lng: -119.533575};
-      var locations = <%- allPeaksAsString %>;
-      var myLocations = [];
-
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: myLatLng,
-          zoom: 4,
-          mapTypeId: 'terrain'
-        });
-
-      var infowindow = new google.maps.InfoWindow();
-
-      var marker, i;
-
-      for (i = 0; i < locations.length; i++) {
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          map: map
-        });
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(locations[i][0]);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
-      }
+    <script>
+    var map;
+    var myLatLng = {lat: 37.745597, lng: -119.533575};
+    var locations = <%- allPeaksAsString %>;
+    var myLocations = [];
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: myLatLng,
+        zoom: 4,
+        mapTypeId: 'terrain'
+      });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {
+      if (locations[i][3] === true) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+        map: map
+      });
+    } else {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        map: map
+    });
   }
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+}
+
     </script>
 
     <script async defer
