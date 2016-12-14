@@ -28,13 +28,6 @@ router.get('/', authenticate, function(req, res, next) {
     peaks.map(peak => {
       return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ', ' + peak.summitted + ']';
   }).join(',') + ']';
-// }
-// else if ('peak.summitted' === false) {
-//   var allPeaksAsString2 = '[' +
-//     peaks.map(peak => {
-//       return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ']';
-//   }).join(',') + ']';
-// }
   res.render('peaks/index', { peaks: peaks, allPeaksAsString, message: req.flash() });
 });
 

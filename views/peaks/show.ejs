@@ -12,7 +12,6 @@
   <main>
     <div>
       <h3>My Peak</h3>
-
       <p><b>Bagged: </b>
         <% if (peak.summitted) { %>
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -22,10 +21,10 @@
       </p>
 
       <p><b>Name: </b><%= peak.name %></p>
-      <p><b>ID: </b><%= peak._id %></p>
+      <!-- <p><b>ID: </b><%= peak._id %></p> -->
       <p><b>Latitude: </b><%= peak.latitude %></p>
       <p><b>Longitude: </b><%= peak.longitude %></p>
-      <p><b>Coordinates: </b><%= peak.coords %></p>  
+      <!-- <p><b>Coordinates: </b><%= peak.coords %></p>   -->
       <p><b>Elevation (ft): </b><%= peak.elevation %></p>
       <p><b>Date Bagged: </b><%= peak.date %></p>
       <p><b>Notes: </b><%= peak.notes %></p>
@@ -52,21 +51,10 @@
           // draggable: true,
           title: 'Set lat/long values'
         });
-
-        // google.maps.event.addListener(marker, 'dragend', function(evt){
-        //   document.getElementById('myLatitude').value = evt.latLng.lat().toFixed(5);
-        //   document.getElementById('myLongitude').value = evt.latLng.lng().toFixed(5);
-        // });
-        //
-        // google.maps.event.addListener(marker, 'dragstart', function(evt){
-        //   document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
-        // });
         map.setCenter(marker.position);
         marker.setMap(map);
-
       }
       </script>
-
 
     <a href="/peaks" class="btn btn-primary">Back</a>
     <a href="/peaks/<%= peak._id %>/edit" class="btn btn-danger">Edit</a>
