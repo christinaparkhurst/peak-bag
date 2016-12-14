@@ -5,8 +5,10 @@
          class="filled-in"
          name="summitted"
          <%= peak.summitted ? 'checked' : '' %> >
-           <label for="summitted">Bagged? (check if yes)</label>
+  <label for="summitted">Bagged? (check if yes, leave blank if on wish list)</label>
 </div>
+<br>
+<br>
 
 <div class="form-group">
   <label for="name">Peak Name</label>
@@ -17,17 +19,17 @@
 </div>
 
 <div class="form-group">
-  <div class="container-fluid" id="map"></div>
+  <label>Location (drag and drop pin to select)</label>
+  <div id="formMap"></div>
     <script>
     var map;
-
-     var myLatLng = {lat: 37.745597, lng: -119.533575};
+    var myLatLng = {lat: 39.833, lng: -98.583};
 
     function initMap() {
       //initialize map
-      map = new google.maps.Map(document.getElementById('map'), {
+      map = new google.maps.Map(document.getElementById('formMap'), {
         center: myLatLng,
-        zoom: 4,
+        zoom: 3,
         mapTypeId: 'terrain'
       });
       //add a draggable marker
@@ -95,9 +97,8 @@
 <div class="form-group">
   <label for="comment">Notes:</label>
   <textarea
-         class="form-control"
-         rows="5"
-         name="notes"
+         class="materialize-textarea"
+         name="comment"
          value="<%= peak.notes %>">
   </textarea>
 </div>

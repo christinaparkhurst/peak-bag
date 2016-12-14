@@ -2,105 +2,135 @@
     font-family: 'Work Sans', sans-serif;
     color: #263238;
 }
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Work Sans', sans-serif;
-}
 
-.indexBody {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url("/images/chamonix.jpg") no-repeat center center fixed;
-  background-size: cover;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
 }
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /*background: url("/images/chamonix.jpg") no-repeat center center fixed;
-  background-size: cover;*/
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #fafafa;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 h1 {
-  font-family: 'Space Mono', monospace;
-}
-h2 {
-  text-align: center;
+    font-family: 'Space Mono', monospace;
 }
 
-nav{
-  background-color: #455a64;
+h2 {
+    text-align: center;
+}
+
+nav {
+    background-color: #455a64;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 1em;
+}
+
+a:hover {
+    color: green;
+}
+
+.indexBody {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: url("/images/chamonix.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .btn {
-  background-color: #455a64;
+    background-color: #0091ea;
+    margin-top: 20px;
+    margin-left: 10px;
 }
+
 .title {
-  text-align: center;
-  /*border: 1px solid white;*/
-  padding: 50px;
-  margin: 0px 100px 200px 100px;
+    text-align: center;
+    padding: 50px;
+    margin: 0px 100px 200px 100px;
 }
-.title h1{
-  font-size: 6em;
+
+.title h1 {
+    font-size: 6em;
 }
 
 .about {
-  background-color: #455a64;
-  border-radius: 5px;
-  padding: 20px;
-
-}
-.about h2{
-  color: white;
+    background-color: rgba(245, 245, 245, 0.75);
+    border-radius: 5px;
+    padding: 20px;
+    color: #263238;
 }
 
-.about p{
-  color: white;
+.about h2 {
+    font-size: 3em;
+    text-align: left;
+}
+
+.about p {
+    font-size: 1.2em;
 }
 
 .title .btn {
-  margin-top: 40px;
-  margin-left: 10px;
-
+    margin-top: 40px;
+    margin-left: 10px;
 }
-/*.btn:hover{
-  background-color: white;
-}*/
 
+.btn:hover {
+    background-color: #4caf50;
+}
+
+.peaksIndex h4 {
+    font-size: 2em;
+}
+
+.peaksIndex h5 {
+    font-size: 1.2em;
+}
+
+.footer {
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 5px;
+    color: #263238;
+    text-align: center;
+}
 
 #map {
-  width: 650px;
-  height: 400px;
-
+    width: 650px;
+    height: 400px;
 }
 
-#wishList{
-  padding-left: 10px;
+#showMap {
+    width: 450px;
+    height: 250px;
+}
+
+#wishList {
+    padding-left: 10px;
 }
 
 #bagged {
-padding-left: 40px;
+    padding-left: 40px;
 }
 
 #formMap {
-  height: 50%;
+    width: 450px;
+    height: 250px;
 }
 
-#current{
-     padding-top: 25px;
+#current {
+    padding-top: 25px;
 }
 
-.peaksIndex h4{
-  font-size: 2em;
-}
-
-.peaksIndex h5{
-  font-size: 1.2em;
+#show {
+    padding-left: 40px;
 }

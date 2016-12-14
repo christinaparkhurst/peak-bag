@@ -4,42 +4,50 @@
   <% include ../partials/head %>
 </head>
 
-<body class="container-fluid">
+<body>
   <header>
     <% include ../partials/header %>
   </header>
 
   <main>
     <div>
-      <h3>My Peak</h3>
-      <p><b>Bagged: </b>
-        <% if (peak.summitted) { %>
-            Yes
-        <% } else { %>
-          Not yet
-        <% } %>
-      </p>
-      <p><b>Name: </b><%= peak.name %></p>
-      <!-- <p><b>ID: </b><%= peak._id %></p> -->
-      <p><b>Latitude: </b><%= peak.latitude %></p>
-      <p><b>Longitude: </b><%= peak.longitude %></p>
-      <!-- <p><b>Coordinates: </b><%= peak.coords %></p>   -->
-      <p><b>Elevation (ft): </b><%= peak.elevation %></p>
-      <p><b>Date Bagged: </b><%= peak.date %></p>
-      <p><b>Notes: </b><%= peak.notes %></p>
-      <p><b>Created at: </b><%= peak.createdAt %></p>
-      <p><b>Updated at: </b><%= peak.updatedAt %></p>
-    </div>
+      <h2>My Peak</h2>
+      <div class="row">
+        <div class="col s6" id="show">
+          <p><b>Bagged: </b>
+            <% if (peak.summitted) { %>
+                Yes
+            <% } else { %>
+              Not yet
+            <% } %>
+          </p>
+          <p><b>Name: </b><%= peak.name %></p>
+          <!-- <p><b>ID: </b><%= peak._id %></p> -->
+          <p><b>Latitude: </b><%= peak.latitude %></p>
+          <p><b>Longitude: </b><%= peak.longitude %></p>
+          <!-- <p><b>Coordinates: </b><%= peak.coords %></p>   -->
+          <p><b>Elevation (ft): </b><%= peak.elevation %></p>
+          <p><b>Date Bagged: </b><%= peak.date %></p>
+          <p><b>Notes: </b><%= peak.notes %></p>
+          <p><b>Created at: </b><%= peak.createdAt %></p>
+          <p><b>Updated at: </b><%= peak.updatedAt %></p>
 
-    <div class="container-fluid" id="map"></div>
+          <a href="/peaks" class="btn">Back</a>
+          <a href="/peaks/<%= peak._id %>/edit" class="btn">Edit</a>
+          <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE">
+            <a href="/peaks/<%= peak._id %>"></a>
+            <button type="submit" class="btn">Delete</button>
+          </form>
+        </div>
 
+  <div class="col s6">
+    <div id="showMap"></div>
       <script>
       var map;
-
       var myLatLng = {lat: <%= peak.latitude %>, lng: <%= peak.longitude %>}
 
       function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('showMap'), {
           center: myLatLng,
           zoom: 4,
           mapTypeId: 'terrain'
@@ -55,12 +63,7 @@
       }
       </script>
 
-    <a href="/peaks" class="btn btn-primary">Back</a>
-    <a href="/peaks/<%= peak._id %>/edit" class="btn btn-danger">Edit</a>
-    <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE">
-      <a href="/peaks/<%= peak._id %>"></a>
-      <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
+  </div>
   </main>
 
   <script async defer
