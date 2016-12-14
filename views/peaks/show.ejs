@@ -14,12 +14,11 @@
       <h3>My Peak</h3>
       <p><b>Bagged: </b>
         <% if (peak.summitted) { %>
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            Yes
         <% } else { %>
-          <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+          Not yet
         <% } %>
       </p>
-
       <p><b>Name: </b><%= peak.name %></p>
       <!-- <p><b>ID: </b><%= peak._id %></p> -->
       <p><b>Latitude: </b><%= peak.latitude %></p>

@@ -1,10 +1,11 @@
 
 <div class="form-group">
-  <label for="summitted">Bagged? (check if yes)</label>
   <input type="checkbox"
-         class="form-control"
+         id="summitted"
+         class="filled-in"
          name="summitted"
          <%= peak.summitted ? 'checked' : '' %> >
+           <label for="summitted">Bagged? (check if yes)</label>
 </div>
 
 <div class="form-group">

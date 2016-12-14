@@ -1,12 +1,13 @@
 
-
-<ul class="nav navbar-nav navbar-left">
+<nav>
+  <div class ="nav-wrapper">
+<ul class="left">
   <li><a href="/">Home</a></li>
   <% if (currentUser) { %>
     <li><a href="/peaks">My Peaks</a></li>
   <% } %>
 </ul>
-<ul class="nav navbar-nav navbar-right">
+<ul class="right">
   <% if (currentUser) { %>
     <li><a href="#"><%= currentUser.local.email %></a></li>
     <li><a href="/logout">Logout</a></li>
@@ -14,8 +15,9 @@
     <li><a href="/login">Login</a></li>
     <li><a href="/signup">Signup</a></li>
   <% } %>
-</ul> 
-
+</ul>
+</div>
+</nav>
 <!-- Incorporating Flash Messages
 add the following beneath the navbar: -->
 

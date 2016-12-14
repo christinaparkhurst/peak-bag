@@ -1,5 +1,6 @@
 * {
     font-family: 'Work Sans', sans-serif;
+    color: #263238;
 }
 html, body {
   height: 100%;
@@ -8,9 +9,18 @@ html, body {
   font-family: 'Work Sans', sans-serif;
 }
 
+.indexBody {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url("/images/chamonix.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background: url("/images/chamonix.jpg") no-repeat center center fixed;
+  background-size: cover;*/
 }
 
 a {
@@ -20,12 +30,63 @@ a {
 h1 {
   font-family: 'Space Mono', monospace;
 }
+h2 {
+  text-align: center;
+}
+
+nav{
+  background-color: #455a64;
+}
+
+.btn {
+  background-color: #455a64;
+}
+.title {
+  text-align: center;
+  /*border: 1px solid white;*/
+  padding: 50px;
+  margin: 0px 100px 200px 100px;
+}
+.title h1{
+  font-size: 6em;
+}
+
+.about {
+  background-color: #455a64;
+  border-radius: 5px;
+  padding: 20px;
+
+}
+.about h2{
+  color: white;
+}
+
+.about p{
+  color: white;
+}
+
+.title .btn {
+  margin-top: 40px;
+  margin-left: 10px;
+
+}
+/*.btn:hover{
+  background-color: white;
+}*/
+
 
 #map {
-  width: 400px;
-  height: 300px;
-  /*height: 100%;*/
+  width: 650px;
+  height: 400px;
 
+}
+
+#wishList{
+  padding-left: 10px;
+}
+
+#bagged {
+padding-left: 40px;
 }
 
 #formMap {
@@ -34,48 +95,12 @@ h1 {
 
 #current{
      padding-top: 25px;
-/*}
-.controls {
-  margin-top: 10px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
+.peaksIndex h4{
+  font-size: 2em;
 }
 
-#pac-input:focus {
-  border-color: #4d90fe;
+.peaksIndex h5{
+  font-size: 1.2em;
 }
-
-.pac-container {
-  font-family: Roboto;
-}
-
-#type-selector {
-  color: #fff;
-  background-color: #4d90fe;
-  padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-#target {
-  width: 345px;
-}*/
