@@ -22,10 +22,10 @@ Christina Parkhurst <br>
 -Slack: @cparkhu
 
 ##Wireframe
-<img src="/public/images/Wireframe.JPG"> <br>
-<img src="/public/images/Wireframe2.JPG"> <br>
-<img src="/public/images/Wireframe3.JPG"> <br>
-<img src="/public/images/Wireframe4.JPG"> <br>
+<img src="/public/images/WireFrame.JPG"> <br>
+<img src="/public/images/WireFrame2.JPG"> <br>
+<img src="/public/images/WireFrame3.JPG"> <br>
+<img src="/public/images/WireFrame4.JPG"> <br>
 
 ##User Stories:
 Deployment: [Heroku](http://farmconnect.herokuapp.com/) <br>
