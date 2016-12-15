@@ -32,4 +32,5 @@ Deployment: [Heroku](http://farmconnect.herokuapp.com/) <br>
 User Stories: [Trello](https://trello.com/b/85C4JfV7/project-3-user-stories)
 
 ##Future Development:
-*
+* Add social aspect so users can view and interact with other accounts
+* Improve Google Maps API to include search feature for easier location of peaks
