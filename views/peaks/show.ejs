@@ -13,7 +13,7 @@
     <div>
       <h2>My Peak</h2>
       <div class="row">
-        <div class="col s6" id="show">
+        <div class="col s6">
           <p><b>Bagged: </b>
             <% if (peak.summitted) { %>
                 Yes
@@ -32,12 +32,14 @@
           <p><b>Created at: </b><%= peak.createdAt %></p>
           <p><b>Updated at: </b><%= peak.updatedAt %></p>
 
+        <div class="showbuttons">
           <a href="/peaks" class="btn">Back</a>
           <a href="/peaks/<%= peak._id %>/edit" class="btn">Edit</a>
           <form method="POST" action="/peaks/<%= peak._id %>?_method=DELETE">
             <a href="/peaks/<%= peak._id %>"></a>
             <button type="submit" class="btn">Delete</button>
           </form>
+        </div>
         </div>
 
   <div class="col s6">

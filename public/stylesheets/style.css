@@ -13,7 +13,9 @@ html, body {
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
+    background: url("/images/chamonix.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 a {
@@ -31,10 +33,12 @@ h2 {
 nav {
     background-color: #455a64;
     border-radius: 5px;
+
 }
 
 label {
-    font-size: 1em;
+    font-size: 1.1em;
+    color: white;
 }
 
 a:hover {
@@ -57,7 +61,7 @@ a:hover {
 .title {
     text-align: center;
     padding: 50px;
-    margin: 0px 100px 200px 100px;
+    margin: 0px 100px 100px 100px;
 }
 
 .title h1 {
@@ -74,6 +78,10 @@ a:hover {
 .about h2 {
     font-size: 3em;
     text-align: left;
+}
+
+.peaksIndex h2 {
+  font-sizee: 1em;
 }
 
 .about p {
@@ -104,9 +112,14 @@ a:hover {
     text-align: center;
 }
 
+.peakname {
+  background-color: rgba(255,255,255,0.75);
+  padding: 0px 10px;
+}
+
 #map {
     width: 650px;
-    height: 400px;
+    height: 350px;
 }
 
 #showMap {
@@ -125,12 +138,3 @@ a:hover {
 #formMap {
     width: 450px;
     height: 250px;
-}
-
-#current {
-    padding-top: 25px;
-}
-
-#show {
-    padding-left: 40px;
-}

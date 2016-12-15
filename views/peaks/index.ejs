@@ -17,7 +17,7 @@
           <% peaks.forEach(function(peak) { %>
             <% if (peak.summitted === true) { %>
               <h5>
-                <a href="/peaks/<%= peak._id %>">
+                <a class="peakname" id="baggedpeak" href="/peaks/<%= peak._id %>">
                   <%= peak.name %>
                 </a>
               </h5>
@@ -31,7 +31,7 @@
           <% peaks.forEach(function(peak) { %>
             <% if (peak.summitted === false) { %>
               <h5>
-                <a href="/peaks/<%= peak._id %>">
+                <a class="peakname" href="/peaks/<%= peak._id %>">
                   <%= peak.name %>
                 </a>
               </h5>
