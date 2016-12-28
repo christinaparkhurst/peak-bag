@@ -19,7 +19,7 @@ Deployment: [Heroku](http://farmconnect.herokuapp.com/)
 
 ##Author
 Christina Parkhurst <br>
--Slack: @cparkhu
+-Slack: @ccparkhurst
 
 ##Wireframe
 <img src="/public/images/WireFrame.JPG"> <br>
