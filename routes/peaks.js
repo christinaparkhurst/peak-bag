@@ -24,6 +24,7 @@ function authenticate(req, res, next) {
 router.get('/', authenticate, function(req, res, next) {
   var peaks = global.currentUser.peaks;
 
+  //solution to create an array of coordinates to render index page map
   var allPeaksAsString = '[' +
     peaks.map(peak => {
       return "['" + peak.name + "', " + peak.latitude + ', ' + peak.longitude + ', ' + peak.summitted + ']';
@@ -38,7 +39,6 @@ router.get('/new', authenticate, function(req, res, next) {
     summitted: '',
     latitude: '',
     longitude: '',
-    // coords: '',
     elevation: '',
     date: '',
     notes: ''
@@ -60,7 +60,6 @@ router.post('/', authenticate, function(req, res, next) {
     summitted: req.body.summitted ? true : false,
     latitude: req.body.latitude,
     longitude: req.body.longitude,
-    // coords: req.body.coords,
     elevation: req.body.elevation,
     date: req.body.date,
     notes: req.body.notes
@@ -90,7 +89,6 @@ router.put('/:id', authenticate, function(req, res, next) {
     peak.summitted = req.body.summitted ? true : false;
     peak.latitude = req.body.latitude;
     peak.longitude = req.body.longitude;
-    // peak.coords = req.peak.coords;
     peak.elevation = req.body.elevation;
     peak.date = req.body.date;
     peak.notes = req.body.notes;

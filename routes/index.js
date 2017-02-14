@@ -12,7 +12,7 @@ router.get('/signup', function(req, res, next) {
   res.render('signup.ejs', { message: req.flash() });
 });
 
-// // POST /signup
+// POST /signup
 router.post('/signup', function(req, res, next) {
   var signUpStrategy = passport.authenticate('local-signup', {
     successRedirect : '/peaks',

@@ -6,29 +6,12 @@ var PeakSchema = new mongoose.Schema({
   name:           { type: String,  required: true },
   latitude:       Number,
   longitude:      Number,
-  coords:         { type: [Number] }, //[Long, Lat]
+  coords:         { type: [Number] },
   elevation:      Number,
-  date:           String,      //figure out how to format date
+  date:           String,
   notes:          String
-  // img:      //how do i upload image
   },
-  { timestamps: true }  // createdAt, updatedAt
+  { timestamps: true }
 );
-
-// function date2String(date) {
-//   var options = {
-//     weekday: 'long', year: 'numeric', month: 'short',
-//     day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
-//   };
-//   return date.toLocaleDateString('en-US', options);
-// }
-//
-// PeakSchema.methods.getCreatedAt = function() {
-//   return date2String(this.createdAt);
-// };
-//
-// PeakSchema.methods.getUpdatedAt = function() {
-//   return date2String(this.updatedAt);
-// };
 
 module.exports = mongoose.model('Peak', PeakSchema);
