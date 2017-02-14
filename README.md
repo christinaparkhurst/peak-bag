@@ -7,7 +7,7 @@ PeakBagr is an app which allows users to keep track of all of the peaks they hav
 Deployment: [Heroku](http://farmconnect.herokuapp.com/)
 
 ##Technologies used
-* Languages - HTML, CSS, Javascript
+* HTML, CSS, Javascript
 * MongoDB
 * ExpressJS
 * NodeJS
@@ -17,9 +17,8 @@ Deployment: [Heroku](http://farmconnect.herokuapp.com/)
 * Materialize
 * Heroku
 
-##Author
-Christina Parkhurst <br>
--Slack: @cparkhu
+##Screenshot
+![screenshot](https://raw.githubusercontent.com/ccparkhurst/peak-bag/master/public/images/screenshot.png)
 
 ##Wireframe
 <img src="/public/images/WireFrame.JPG"> <br>
